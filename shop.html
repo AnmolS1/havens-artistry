@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shop All — Haven's Artistry</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		.page-head {
+			position: relative;
+			text-align: center;
+			padding: clamp(48px, 7vw, 90px) 0 6px;
+			overflow: hidden;
+		}
+
+		.shop-frame {
+			position: relative;
+			padding: clamp(20px, 4vw, 40px);
+			border-radius: var(--radius-lg);
+			background: rgba(255, 252, 249, .55);
+			border: 1.5px solid var(--line);
+			box-shadow: var(--shadow-card);
+		}
+
+		.shop-frame .corner {
+			position: absolute;
+			width: 54px;
+			height: 54px;
+			color: var(--mauve);
+			opacity: .6;
+		}
+
+		.prod-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+			gap: 24px;
+		}
+
+		.prod .ph {
+			aspect-ratio: 1/1;
+			border-radius: 20px;
+		}
+
+		.prod h3 {
+			font-size: 1.3rem;
+			margin-top: 12px;
+		}
+
+		.prod .cat-tag {
+			font-size: .72rem;
+			letter-spacing: .14em;
+			text-transform: uppercase;
+			color: var(--mauve);
+			font-weight: 700;
+		}
+
+		.add-btn {
+			font-family: var(--body);
+			font-weight: 700;
+			font-size: .86rem;
+			padding: .6em 1.1em;
+			border-radius: 999px;
+			border: 1.5px solid var(--mauve);
+			background: var(--cream);
+			color: var(--ink);
+			transition: .3s;
+		}
+
+		.add-btn:hover {
+			background: linear-gradient(135deg, var(--pink), var(--lavender));
+			border-color: transparent;
+			color: #5b3a55;
+			transform: translateY(-2px);
+		}
+
+		.empty-msg {
+			display: none;
+			text-align: center;
+			color: var(--ink-soft);
+			padding: 40px;
+		}
+	</style>
+</head>
+
+<body data-page="shop">
+	<div id="site-header"></div>
+
+	<section class="page-head">
+		<span class="blob" style="width:320px;height:320px;background:var(--pink);top:-90px;left:8%"></span>
+		<span class="blob" style="width:280px;height:280px;background:var(--lime);top:-50px;right:10%"></span>
+		<div class="wrap" style="position:relative;z-index:2;">
+			<span class="eyebrow">Gather a Posy</span>
+			<h1 class="display" style="font-size:clamp(2.6rem,6vw,4.4rem);">Shop All</h1>
+			<p class="lead center" style="margin:.6em auto 1.4em;">Everything blooming in the studio right now — filter
+				by collection and fill your basket.</p>
+			<div class="pill-filters">
+				<button class="filter active" onclick="havens.filter('all',this)">All</button>
+				<button class="filter" onclick="havens.filter('stickers',this)">Stickers</button>
+				<button class="filter" onclick="havens.filter('earrings',this)">Earrings</button>
+				<button class="filter" onclick="havens.filter('rings',this)">Rings</button>
+				<button class="filter" onclick="havens.filter('bracelets',this)">Bracelets</button>
+				<button class="filter" onclick="havens.filter('necklaces',this)">Necklaces</button>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" style="padding-top:18px">
+		<div class="wrap">
+			<div class="shop-frame" id="shopFrame">
+				<div class="prod-grid" id="prodGrid"></div>
+				<p class="empty-msg" id="emptyMsg">No blooms in this patch just yet 🌱</p>
+			</div>
+		</div>
+	</section>
+
+	<div id="site-footer"></div>
+	<script src="site.js" defer></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// decorative spiral corners framing the grid
+			var frame = document.getElementById('shopFrame');
+			var pos = [['tl', 'top:8px;left:8px;'], ['tr', 'top:8px;right:8px;transform:scaleX(-1)'],
+			['bl', 'bottom:8px;left:8px;transform:scaleY(-1)'], ['br', 'bottom:8px;right:8px;transform:scale(-1,-1)']];
+			pos.forEach(function (p) {
+				var s = document.createElement('span'); s.className = 'corner'; s.style.cssText = p[1];
+				s.innerHTML = SVG.flourish(); frame.appendChild(s);
+			});
+
+			// product data — placeholders
+			var CATS = { stickers: 'Stickers', earrings: 'Earrings', rings: 'Rings', bracelets: 'Bracelets', necklaces: 'Necklaces' };
+			var prods = [
+				['stickers', 'Sticker No. 01', '$4'], ['stickers', 'Sticker No. 02', '$5'], ['stickers', 'Sticker Pack', '$12'],
+				['earrings', 'Earrings No. 01', '$24'], ['earrings', 'Earrings No. 02', '$28'], ['earrings', 'Earrings No. 03', '$26'],
+				['rings', 'Ring No. 01', '$18'], ['rings', 'Ring No. 02', '$20'], ['rings', 'Ring No. 03', '$22'],
+				['bracelets', 'Bracelet No. 01', '$26'], ['bracelets', 'Bracelet No. 02', '$30'], ['bracelets', 'Bracelet No. 03', '$28'],
+				['necklaces', 'Necklace No. 01', '$34'], ['necklaces', 'Necklace No. 02', '$38'], ['necklaces', 'Necklace No. 03', '$42'],
+				['necklaces', 'Necklace No. 04', '$40']
+			];
+			var grid = document.getElementById('prodGrid');
+			var sprig = ['br', 'bl', 'tr'];
+			grid.innerHTML = prods.map(function (p, i) {
+				return '<article class="card prod reveal" data-cat="' + p[0] + '">' +
+					'<div class="ph" data-label="' + CATS[p[0]] + ' shot" data-sprig="' + sprig[i % 3] + '"></div>' +
+					'<span class="cat-tag">' + CATS[p[0]] + '</span>' +
+					'<h3>' + p[1] + '</h3>' +
+					'<div class="card-meta"><span class="price">' + p[2] + '</span>' +
+					'<button class="add-btn" onclick="havens.addToCart(\'' + p[1] + '\',\'' + p[2] + '\',this)">Add to Cart</button></div>' +
+					'</article>';
+			}).join('');
+			// re-run decoration for newly added placeholders
+			if (window.havens) {
+				document.querySelectorAll('[data-sprig]').forEach(function (el) {
+					if (!el.dataset.done && window.SVG) {
+						var pos = el.getAttribute('data-sprig'); var w = document.createElement('span');
+						w.className = 'sprig sprig-' + pos; w.innerHTML = SVG.sprig(70); el.appendChild(w); el.dataset.done = 1;
+					}
+				});
+			}
+			document.querySelectorAll('.prod.reveal').forEach(function (el) { el.classList.add('in'); });
+		});
+	</script>
+</body>
+
+</html>
