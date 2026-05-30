@@ -7,7 +7,7 @@ configured for **static export** so it deploys cleanly to **Cloudflare Pages**.
 
 ## Stack
 
-- Next.js 14 (App Router)
+- Next.js 16 (App Router)
 - React 18
 - **Static export** (`output: 'export'` in `next.config.js`) — no server runtime required
 - **CSS Modules** for component-scoped styling, with a thin `app/globals.css` for
@@ -23,10 +23,10 @@ npm run dev        # http://localhost:3000
 ## Build (static export)
 
 ```bash
-npm run build      # outputs a fully static site to ./out
+npm run build      # outputs a fully static site to ./build
 ```
 
-`next build` with `output: 'export'` writes the static site to `out/`.
+`next build` with `output: 'export'` writes the static site to `build/`.
 
 ## Deploy to Cloudflare Pages
 
@@ -35,8 +35,8 @@ Connect the repo in the Cloudflare Pages dashboard and use:
 | Setting            | Value         |
 | ------------------ | ------------- |
 | Framework preset   | Next.js (Static HTML Export) |
-| Build command      | `npx next build` |
-| Build output dir   | `out`         |
+| Build command      | `npm run build` |
+| Build output dir   | `build`         |
 
 No environment variables are required for the placeholder build.
 
@@ -75,4 +75,4 @@ The checkout is a **visual placeholder only** — no real payment logic is wired
 Integration points are clearly marked in `components/CheckoutClient.jsx`:
 
 - `// TODO: Stripe integration`
-- `// TODO: PayPal/Venmo integration`
+- `// TODO: PayPal/Venmo integration`0
