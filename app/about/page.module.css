@@ -1,0 +1,107 @@
+.bio {
+	display: grid;
+	grid-template-columns: 0.9fr 1.1fr;
+	gap: 48px;
+	align-items: center;
+}
+
+/* oval portrait frame with spinning spiral ring + flowers */
+.portraitWrap {
+	position: relative;
+	justify-self: center;
+	max-width: 360px;
+	width: 100%;
+}
+
+.portrait {
+	aspect-ratio: 4/5;
+	border-radius: 50%/45%;
+	overflow: hidden;
+	border: 3px solid var(--cream);
+	box-shadow: 0 0 0 2px var(--mauve), var(--shadow-soft);
+	position: relative;
+}
+
+.portraitPh {
+	width: 100%;
+	height: 100%;
+	border-radius: 0 !important;
+	border: none !important;
+}
+
+.portraitRing {
+	position: absolute;
+	inset: -26px;
+	color: var(--mauve);
+	opacity: .5;
+	animation: spin-slow 60s linear infinite;
+	pointer-events: none;
+}
+
+.flower {
+	position: absolute;
+	color: var(--pink);
+}
+
+/* materials */
+.materials {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 22px;
+}
+
+.mat {
+	background: var(--cream);
+	border: 1.5px solid var(--line-soft);
+	border-radius: 22px;
+	padding: 22px;
+	text-align: center;
+	box-shadow: var(--shadow-card);
+}
+
+.matIc {
+	width: 54px;
+	height: 54px;
+	margin: 0 auto 12px;
+	color: var(--mauve);
+}
+
+.mat h3 {
+	font-size: 1.35rem;
+}
+
+/* values */
+.values {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+}
+
+.value {
+	position: relative;
+	padding: 30px 24px;
+	border-radius: 24px;
+	text-align: center;
+	overflow: hidden;
+	color: #523c50;
+}
+
+.valueTitle {
+	font-size: 1.5rem;
+	color: #4f3a4d;
+}
+
+.valueText {
+	color: #5b3a55;
+	margin: 0;
+}
+
+@media (max-width:860px) {
+	.bio {
+		grid-template-columns: 1fr;
+	}
+
+	.values {
+		grid-template-columns: 1fr;
+	}
+}

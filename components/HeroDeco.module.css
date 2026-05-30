@@ -1,0 +1,35 @@
+.heroDeco {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.heroDeco svg,
+.heroDeco span {
+	position: absolute;
+}
+
+.heroBr {
+	position: absolute;
+	transform-origin: center;
+}
+
+.heroEl {
+	display: block;
+	line-height: 0;
+}
+
+.heroBr svg,
+.heroEl svg {
+	position: relative;
+	top: auto;
+	left: auto;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.heroBr svg {
+	transform-origin: top center;
+}

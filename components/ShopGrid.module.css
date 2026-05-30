@@ -1,0 +1,84 @@
+.pillFilters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+	margin-bottom: 0;
+}
+
+.filter {
+	font-family: var(--body);
+	font-weight: 700;
+	font-size: .9rem;
+	padding: .55em 1.25em;
+	border-radius: 999px;
+	border: 1.5px solid var(--line);
+	background: rgba(255, 255, 255, .6);
+	color: var(--ink-soft);
+	transition: .3s;
+}
+
+.filter:hover {
+	border-color: var(--mauve);
+	color: var(--mauve);
+	transform: translateY(-1px);
+}
+
+.activeFilter {
+	background: linear-gradient(135deg, var(--pink), var(--lavender));
+	color: #5b3a55;
+	border-color: transparent;
+}
+
+.frame {
+	position: relative;
+	margin-top: 32px;
+	padding: clamp(20px, 4vw, 40px);
+	border-radius: var(--radius-lg);
+	background: rgba(255, 252, 249, .55);
+	border: 1.5px solid var(--line);
+	box-shadow: var(--shadow-card);
+}
+
+.corner {
+	position: absolute;
+	width: 54px;
+	height: 54px;
+	color: var(--mauve);
+	opacity: .6;
+}
+
+.tl {
+	top: 8px;
+	left: 8px;
+}
+
+.tr {
+	top: 8px;
+	right: 8px;
+	transform: scaleX(-1);
+}
+
+.bl {
+	bottom: 8px;
+	left: 8px;
+	transform: scaleY(-1);
+}
+
+.br {
+	bottom: 8px;
+	right: 8px;
+	transform: scale(-1, -1);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 24px;
+}
+
+.empty {
+	text-align: center;
+	color: var(--ink-soft);
+	padding: 40px;
+}

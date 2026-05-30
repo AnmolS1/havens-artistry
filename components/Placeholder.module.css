@@ -1,0 +1,61 @@
+:where(.ph) {
+	position: relative;
+	border-radius: var(--radius);
+	overflow: hidden;
+	background: repeating-linear-gradient(135deg, var(--cream-2) 0 14px, #fbeaf3 14px 28px);
+	border: 1.5px solid var(--line);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	isolation: isolate;
+}
+
+.framed {
+	position: relative;
+}
+
+.ph::after {
+	content: attr(data-label);
+	font-family: var(--body);
+	font-size: .74rem;
+	font-weight: 700;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	color: var(--mauve);
+	background: rgba(255, 252, 249, .78);
+	padding: .4em .8em;
+	border-radius: 999px;
+	border: 1px solid var(--line-soft);
+	position: relative;
+	z-index: 2;
+}
+
+.sprig {
+	position: absolute;
+	color: var(--mauve);
+	opacity: .5;
+	z-index: 1;
+}
+
+.sprigBr {
+	bottom: 8px;
+	right: 8px;
+}
+
+.sprigBl {
+	bottom: 8px;
+	left: 8px;
+	transform: scaleX(-1);
+}
+
+.sprigTr {
+	top: 8px;
+	right: 8px;
+	transform: rotate(180deg);
+}
+
+.sprigTl {
+	top: 8px;
+	left: 8px;
+	transform: scale(-1, 1) rotate(180deg);
+}

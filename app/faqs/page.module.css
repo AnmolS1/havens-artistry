@@ -1,0 +1,9 @@
+.faqWrap {
+	max-width: 820px;
+	margin: 0 auto;
+}
+
+.cta {
+	margin-top: 36px;
+	background: linear-gradient(135deg, var(--mint-18), var(--lavender-15));
+}

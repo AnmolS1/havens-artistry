@@ -1,0 +1,24 @@
+.divider {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 14px;
+	color: var(--mauve);
+	opacity: .85;
+	margin: 6px 0;
+}
+
+.divider svg {
+	display: block;
+}
+
+.line {
+	height: 1px;
+	width: min(220px, 26vw);
+	background: linear-gradient(90deg, transparent, var(--mauve), transparent);
+	opacity: .5;
+}
+
+.wrap {
+	margin: clamp(28px, 5vw, 56px) 0;
+}

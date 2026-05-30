@@ -1,0 +1,11 @@
+.head {
+	position: relative;
+	text-align: center;
+	padding: clamp(48px, 7vw, 90px) 0 6px;
+	overflow: hidden;
+}
+
+.inner {
+	position: relative;
+	z-index: 2;
+}

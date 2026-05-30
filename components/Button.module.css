@@ -1,0 +1,65 @@
+.btn {
+	--bc: var(--mauve);
+	display: inline-flex;
+	align-items: center;
+	gap: .55em;
+	font-family: var(--body);
+	font-weight: 700;
+	font-size: .98rem;
+	padding: .82em 1.7em;
+	border-radius: 999px;
+	border: 1.5px solid var(--bc);
+	background: var(--cream);
+	color: var(--ink);
+	position: relative;
+	transition: transform .35s cubic-bezier(.34, 1.4, .5, 1),
+		box-shadow .35s, background .35s;
+	letter-spacing: .01em;
+}
+
+.spin {
+	flex: 0 0 auto;
+	width: 15px;
+	height: 15px;
+	opacity: .7;
+	transition: transform .6s ease;
+}
+
+.btn:hover {
+	transform: translateY(-2px) scale(1.03);
+	box-shadow: 0 12px 26px -12px rgba(167, 130, 162, .7);
+}
+
+.btn:hover .spin {
+	transform: rotate(140deg);
+}
+
+.primary {
+	background: linear-gradient(135deg, var(--pink), var(--lavender));
+	border-color: transparent;
+	color: #5b3a55;
+}
+
+.primary:hover {
+	box-shadow: 0 14px 30px -10px rgba(215, 174, 252, .85);
+}
+
+.mint {
+	background: linear-gradient(135deg, var(--mint), var(--lime));
+	color: #3c5b40;
+	border-color: transparent;
+}
+
+.ghost {
+	background: rgba(255, 255, 255, .55);
+}
+
+.lg {
+	padding: 1em 2.1em;
+	font-size: 1.05rem;
+}
+
+.block {
+	width: 100%;
+	justify-content: center;
+}
