@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const nextConfig = {
 	output: 'export',
 	images: { unoptimized: true },
 	trailingSlash: true,
 	distDir: 'build',
+	basePath: basePath || undefined,
+	assetPrefix: basePath || undefined,
 
-	// Required for GitHub Pages project site at /havens-artistry/
-	basePath: '/havens-artistry',
-	assetPrefix: '/havens-artistry/',
+	env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
 module.exports = nextConfig;

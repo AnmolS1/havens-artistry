@@ -8,6 +8,7 @@ import Button from '@/components/Button';
 import NewsletterForm from '@/components/NewsletterForm';
 import { Spiral } from '@/components/Decor';
 import { COLLECTIONS } from '@/lib/catalog';
+import { portraitImg, instagramImg } from '@/lib/images';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
 			<section className="section" style={{ paddingTop: 0 }}>
 				<div className="wrap">
 					<Panel flourish className={styles.teaser}>
-						<Placeholder className={styles.teaserPh} framed label="Maker portrait" sprig="br" />
+						<Placeholder className={styles.teaserPh} framed label="Maker portrait" sprig="br" src={portraitImg()} alt="The maker in the studio" />
 						<div className="reveal">
 							<span className="eyebrow">Meet the Maker</span>
 							<h2>A garden studio, two hands, and a whole lot of heart.</h2>
@@ -131,7 +132,7 @@ export default function Home() {
 					<Divider />
 					<div className={styles.igGrid}>
 						{[1, 2, 3, 4, 5, 6].map((n) => (
-							<Placeholder key={n} className={styles.igPh} label={`IG ${n}`} />
+							<Placeholder key={n} className={styles.igPh} label={`IG ${n}`} src={instagramImg(n - 1)} alt={`Instagram photo ${n}`} />
 						))}
 					</div>
 					<div className="center" style={{ marginTop: 26 }}>

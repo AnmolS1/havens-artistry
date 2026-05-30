@@ -1,7 +1,7 @@
 import PageHead from '@/components/PageHead';
 import ShopGrid from '@/components/ShopGrid';
 
-export const metadata = { title: "Shop All — Haven's Artistry" };
+export const metadata = { title: 'Shop All' };
 
 const BLOBS = [
 	{ width: 320, height: 320, background: 'var(--pink)', top: '-90px', left: '8%' },

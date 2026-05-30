@@ -2,9 +2,10 @@ import PageHead from '@/components/PageHead';
 import Panel from '@/components/Panel';
 import Placeholder from '@/components/Placeholder';
 import CustomOrderForm from '@/components/CustomOrderForm';
+import { customWorkImg } from '@/lib/images';
 import styles from './page.module.css';
 
-export const metadata = { title: "Custom Order — Haven's Artistry" };
+export const metadata = { title: 'Custom Order' };
 
 const BLOBS = [
 	{ width: 330, height: 330, background: 'var(--lavender)', top: '-100px', left: '6%' },
@@ -23,7 +24,7 @@ export default function CustomOrderPage() {
 				<div className="wrap">
 					<div className={styles.customLayout}>
 						<Panel flourish className={`${styles.introCard} reveal`}>
-							<Placeholder className={styles.introPh} framed label="Custom work" sprig="br" />
+							<Placeholder className={styles.introPh} framed label="Custom work" sprig="br" src={customWorkImg()} alt="A custom handmade piece" />
 							<h3>Made just for you</h3>
 							<p style={{ color: 'var(--ink-soft)' }}>
 								Tell me your vision — a favorite flower, a color you love, a feeling you want to carry

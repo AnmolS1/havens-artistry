@@ -2,7 +2,7 @@ import PageHead from '@/components/PageHead';
 import Panel from '@/components/Panel';
 import styles from './page.module.css';
 
-export const metadata = { title: "Terms & Conditions — Haven's Artistry" };
+export const metadata = { title: 'Terms & Conditions' };
 
 const BLOBS = [
 	{ width: 320, height: 320, background: 'var(--lavender)', top: '-90px', left: '8%' },

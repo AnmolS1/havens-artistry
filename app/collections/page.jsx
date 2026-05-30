@@ -3,7 +3,7 @@ import CollectionCard from '@/components/CollectionCard';
 import { COLLECTIONS, COMING_SOON } from '@/lib/catalog';
 import styles from './page.module.css';
 
-export const metadata = { title: "Collections — Haven's Artistry" };
+export const metadata = { title: 'Collections' };
 
 export default function CollectionsPage() {
 	return (

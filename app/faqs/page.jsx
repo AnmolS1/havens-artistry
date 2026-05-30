@@ -4,7 +4,7 @@ import Button from '@/components/Button';
 import FaqAccordion from '@/components/FaqAccordion';
 import styles from './page.module.css';
 
-export const metadata = { title: "FAQs — Haven's Artistry" };
+export const metadata = { title: 'FAQs' };
 
 const BLOBS = [
 	{ width: 320, height: 320, background: 'var(--pink)', top: '-90px', left: '8%' },

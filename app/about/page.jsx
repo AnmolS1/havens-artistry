@@ -3,9 +3,10 @@ import Divider from '@/components/Divider';
 import Placeholder from '@/components/Placeholder';
 import Button from '@/components/Button';
 import { Spiral } from '@/components/Decor';
+import { portraitImg } from '@/lib/images';
 import styles from './page.module.css';
 
-export const metadata = { title: "About — Haven's Artistry" };
+export const metadata = { title: 'About' };
 
 const BLOBS = [
 	{ width: 320, height: 320, background: 'var(--mint)', top: '-90px', left: '8%' },
@@ -39,7 +40,7 @@ export default function AboutPage() {
 						<div className={`${styles.portraitWrap} reveal`}>
 							<Spiral className={styles.portraitRing} strokeWidth={2.4} />
 							<div className={styles.portrait}>
-								<Placeholder className={styles.portraitPh} label="Maker portrait" />
+								<Placeholder className={styles.portraitPh} label="Maker portrait" src={portraitImg()} alt="Portrait of the maker" />
 							</div>
 							<span className={styles.flower} style={{ top: '-10px', right: '30px', fontSize: '2rem' }}>✿</span>
 							<span className={styles.flower} style={{ bottom: '6px', left: '8px', fontSize: '1.6rem', color: 'var(--lavender)' }}>❀</span>

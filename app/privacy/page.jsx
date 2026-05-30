@@ -3,7 +3,7 @@ import Button from '@/components/Button';
 import Divider from '@/components/Divider';
 import styles from './page.module.css';
 
-export const metadata = { title: "Privacy Policy — Haven's Artistry" };
+export const metadata = { title: 'Privacy Policy' };
 
 const TOC = [
 	['What I Collect', '#collect'],

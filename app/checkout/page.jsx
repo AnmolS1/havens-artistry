@@ -1,7 +1,7 @@
 import PageHead from '@/components/PageHead';
 import CheckoutClient from '@/components/CheckoutClient';
 
-export const metadata = { title: "Checkout — Haven's Artistry" };
+export const metadata = { title: 'Checkout' };
 
 const BLOBS = [
 	{ width: 300, height: 300, background: 'var(--mint)', top: '-80px', left: '8%' },
